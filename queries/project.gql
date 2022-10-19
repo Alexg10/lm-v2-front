@@ -1,0 +1,155 @@
+query getProjectBySlug($slug: String!) {
+  projectBy(slug: $slug) {
+    id
+    title
+    acfProjectFields {
+      projectTitle
+      projectType
+      projectDescription
+      projectLink
+      headerPicture{
+        sourceUrl(size: HEADER_PICTURE)
+      }
+      footerBgcolor
+      footerLink{
+				... on Project {
+          id
+          slug
+          acfProjectFields {
+            projectTitle
+            headerPicture{
+              sourceUrl(size: HEADER_PICTURE)
+            }
+          }
+        }
+      }
+      blocs {
+        ... on Project_Acfprojectfields_Blocs_BlocStep {
+          fieldGroupName
+          color
+          number
+          stepTitle
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocLaptop {
+          fieldGroupName
+          color
+          laptopPicture {
+            sourceUrl
+          }
+          laptopVideo
+          pictureVideo
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocTxt {
+          fieldGroupName
+          color
+          text
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocSketch {
+          fieldGroupName
+          color
+          sketchImages {
+            sketchImage {
+              sourceUrl(size: FULL_WIDTH)
+            }
+          }
+          sketchMobileVideo
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocFourSectionContent {
+          fieldGroupName
+          color
+          typo
+          blocFourSectionImg {
+            image {
+              sourceUrl(size: SKETCH_PICTURE)
+            }
+          }
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocImgFullCenter {
+          fieldGroupName
+          blocImgFullCenterImg {
+            sourceUrl(size: FULL_WIDTH)
+          }
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocImgFullHalf{
+          fieldGroupName
+          blocImgFullHalfImages{
+            blocImgFullHalfImage{
+              sourceUrl(size: FULL_WIDTH)
+            }
+          }
+          
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocSixImgTxt{
+          fieldGroupName
+          blocSixTxt
+          chapter
+          chapterName
+          blocSixImages{
+            blocSixImg{
+              sourceUrl(size: SKETCH_PICTURE)
+            }
+          }
+          
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocColors {
+          fieldGroupName
+          color
+          blocColorsColor {
+            colorHexa
+            colorTitle
+          }
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocBgGradient {
+          fieldGroupName
+          blocBgGradientTxt
+          gradientBackground {
+            gradientBackgroundImage {
+              sourceUrl(size: SKETCH_PICTURE)
+            }
+          }
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocPatchwork {
+          fieldGroupName
+          firstPatchwork {
+            firstPatchworkImages {
+              sourceUrl(size: SKETCH_PICTURE)
+            }
+          }
+          patchworkTxt
+          secondPatchwork {
+            secondPatchworkImg {
+              sourceUrl(size: SKETCH_PICTURE)
+            }
+          }
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocAnimation {
+          fieldGroupName
+          imageDesktop {
+            sourceUrl
+          }
+          imageMobile {
+            sourceUrl(size: SKETCH_PICTURE)
+          }
+          videoMobile
+        }
+        ... on Project_Acfprojectfields_Blocs_BlocAfterEffect {
+          fieldGroupName
+          imageMiddle {
+            sourceUrl(size: SKETCH_PICTURE)
+          }
+          imageTopLeft {
+            sourceUrl(size: SKETCH_PICTURE)
+          }
+          imageTopRight {
+            sourceUrl(size: SKETCH_PICTURE)
+          }
+          imagesFullHeight {
+            imageFullHeight {
+              sourceUrl(size: FULL_WIDTH)
+            }
+          }
+        }
+      }
+    }
+  }
+}

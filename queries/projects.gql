@@ -1,0 +1,16 @@
+{
+  projects{
+    nodes{
+      id
+      title
+      slug
+      acfProjectFields{
+        projectTitle
+        projectType
+        headerPicture{
+          sourceUrl(size: HEADER_PICTURE)
+        }
+      }
+    }
+  }
+}

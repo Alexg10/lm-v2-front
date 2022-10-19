@@ -1,0 +1,44 @@
+.listFade-enter-active{
+    animation: listFade-in 1.5s
+}
+.listFade-leave-active {
+    animation: listFade-out 1.5s
+}
+
+@keyframes listFade-in{
+    0%{ opacity: 0}
+    100%{ opacity: 1}
+}
+
+@keyframes listFade-out{
+    0%{ opacity: 1}
+    50%{ opacity: 1}
+    100%{ opacity: 0}
+}
+
+
+.cover-enter-active .cover-project,
+.cover-leave-active  .cover-project{
+    transition: all 2s;
+}
+
+.cover-enter .cover-project,
+.cover-leave-to .cover-project{
+    visibility: visible;
+    display: block;
+}
+
+.projectToList-leave-to,
+.projectToList-leave-active {
+  animation: listFade-out 1.5s
+}
+
+// @keyframes listFade-out {
+//   0% {
+//     opacity: 1
+//   }
+
+//   100% {
+//     opacity: 0
+//   }
+// }
